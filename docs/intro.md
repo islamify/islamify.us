@@ -1,5 +1,8 @@
 ---
+id: intro
+slug: /intro
 sidebar_position: 3
+
 ---
 
 # Tutorial Intro
