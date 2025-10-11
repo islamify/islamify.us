@@ -1,7 +1,7 @@
 // @ts-check
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // "All" sidebar: automatically includes everything under /docs
+  // All resources sidebar
   allSidebar: [
     {
       type: 'category',
@@ -15,7 +15,7 @@ const sidebars = {
     },
   ],
 
-  // Duas sidebar: only docs/duas
+  // Duas sidebar
   duasSidebar: [
     {
       type: 'category',
@@ -29,7 +29,7 @@ const sidebars = {
     },
   ],
 
-  // Ziyarat sidebar: only docs/ziyarat
+  // Ziyarat sidebar
   ziyaratsSidebar: [
     {
       type: 'category',

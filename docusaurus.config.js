@@ -28,7 +28,6 @@ const config = {
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // No multiple docs instances needed
         },
         blog: { showReadingTime: true },
         theme: { customCss: require.resolve('./src/css/custom.css') },
@@ -63,7 +62,13 @@ const config = {
             { label: 'X', href: 'https://x.com/docusaurus' },
           ],
         },
-        { title: 'More', items: [{ label: 'Blog', to: '/blog' }, { label: 'GitHub', href: 'https://github.com/islamify/islamify.us' }] },
+        {
+          title: 'More',
+          items: [
+            { label: 'Blog', to: '/blog' },
+            { label: 'GitHub', href: 'https://github.com/islamify/islamify.us' },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Islamify. Built with Docusaurus.`,
     },
