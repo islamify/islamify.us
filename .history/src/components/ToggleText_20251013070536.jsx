@@ -1,3 +1,4 @@
+// src/components/ToggleText.jsx
 import React, { useEffect, useState } from 'react';
 import '@site/src/css/toggleText.css';
 import '@site/src/css/typography.css';
@@ -26,8 +27,6 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
 
   const [arabicFont, setArabicFont] = useState('Amiri');
   const arabicFonts = ['Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Lateef', 'Cairo'];
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Load saved state
   useEffect(() => {
@@ -99,75 +98,61 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
   return (
     <div className="toggle-container center-text">
 
-      {/* ===== Control Panel (Replaced with modal trigger) ===== */}
+      {/* ===== Control Panel ===== */}
       <div className="control-panel">
-        <button className="open-modal-btn" onClick={() => setIsModalOpen(true)}>
-          ⚙️ Font Settings
-        </button>
+        {/* Font dropdown */}
+        <div className="font-dropdown-container">
+          <label>Arabic Font:</label>
+          <select value={arabicFont} onChange={(e) => setArabicFont(e.target.value)}>
+            {sortedArabicFonts.map((f) => (
+              <option key={f} value={f}>{f}</option>
+            ))}
+          </select>
+        </div>
 
-        {isModalOpen && (
-          <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <h3>Font Settings</h3>
-
-              {/* Font dropdown */}
-              <div className="font-dropdown-container">
-                <label>Arabic Font:</label>
-                <select value={arabicFont} onChange={(e) => setArabicFont(e.target.value)}>
-                  {sortedArabicFonts.map((f) => (
-                    <option key={f} value={f}>{f}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Font size sliders */}
-              <div className="font-controls">
-                <div>
-                  <label>Arabic </label>
-                  <input
-                    type="range"
-                    min="1" max="5" step="0.1"
-                    value={arabicFontSize}
-                    onChange={(e) => setArabicFontSize(parseFloat(e.target.value))}
-                  />
-                </div>
-                <div>
-                  <label>Transliteration </label>
-                  <input
-                    type="range"
-                    min="0.5" max="2" step="0.05"
-                    value={transliterationFontSize}
-                    onChange={(e) => setTransliterationFontSize(parseFloat(e.target.value))}
-                  />
-                </div>
-                <div>
-                  <label>Translation </label>
-                  <input
-                    type="range"
-                    min="0.5" max="3" step="0.05"
-                    value={translationFontSize}
-                    onChange={(e) => setTranslationFontSize(parseFloat(e.target.value))}
-                  />
-                </div>
-                <div>
-                  <label>Poe</label>
-                  <input
-                    type="range"
-                    min="0.5"
-                    max="3"
-                    step="0.05"
-                    value={poeFontSize}
-                    onChange={(e) => setPoeFontSize(parseFloat(e.target.value))}
-                  />
-                </div>
-              </div>
-
-              <button className="close-btn" onClick={() => setIsModalOpen(false)}>
-                Close
-              </button>
-            </div>
+        {/* Font size sliders */}
+        <div className="font-controls">
+          <div>
+            <label>Arabic </label>
+            <input
+              type="range"
+              min="1" max="5" step="0.1"
+              value={arabicFontSize}
+              onChange={(e) => setArabicFontSize(parseFloat(e.target.value))}
+            />
           </div>
-        )}
+          <div>
+            <label>Transliteration </label>
+            <input
+              type="range"
+              min="0.5" max="2" step="0.05"
+              value={transliterationFontSize}
+              onChange={(e) => setTransliterationFontSize(parseFloat(e.target.value))}
+            />
+          </div>
+          <div>
+            <label>Translation </label>
+            <input
+              type="range"
+              min="0.5" max="3" step="0.05"
+              value={translationFontSize}
+              onChange={(e) => setTranslationFontSize(parseFloat(e.target.value))}
+            />
+          </div>
+
+          <div>
+  <label>Poe</label>
+  <input
+    type="range"
+    min="0.5"
+    max="3"
+    step="0.05"
+    value={poeFontSize}
+    onChange={(e) => setPoeFontSize(parseFloat(e.target.value))}
+  />
+</div>
+
+        </div>
       </div>
 
       {/* ===== Toggle checkboxes ===== */}
@@ -194,7 +179,6 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
             setArabicFontSize(3);
             setTransliterationFontSize(1.2);
             setTranslationFontSize(1.5);
-            setPoeFontSize(1.2);
             setArabicFont('Scheherazade New');
           }}
         >

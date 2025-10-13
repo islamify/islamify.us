@@ -7,7 +7,7 @@
 
 .center-text p {
   margin: 0.3rem 0;
-  transition: opacity 0.3s ease, max-height 0.3s ease, font-size 0.2s ease;
+  transition: opacity 0.3s ease, max-height 0.3s ease, font-size 0.2s ease; /* smooth transition including font-size */
 }
 
 /* ================== ToggleText controls ================== */
@@ -59,7 +59,7 @@
 }
 
 .line-block:hover {
-  background-color: rgba(200, 200, 200, 0.2);
+  background-color: rgba(200, 200, 200, 0.20);
 }
 
 [data-theme='dark'] .line-block:hover {
@@ -78,9 +78,9 @@
 }
 
 .dictionary-block span {
-  background-color: var(--ifm-color-emphasis-100, #f0f0f0);
-  color: var(--ifm-font-color-base, #000);
-  border: 1px solid var(--ifm-color-emphasis-200, #d1d5db);
+  background-color: #f0f0f0;
+  color: #000;
+  border: 1px solid #d1d5db;
   border-radius: 12px;
   padding: 0.2rem 0.5rem;
   white-space: nowrap;
@@ -89,20 +89,20 @@
 }
 
 .dictionary-block span:hover {
-  background-color: var(--ifm-color-primary, #000);
-  color: var(--ifm-color-emphasis-0, #fff);
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
 }
 
 [data-theme='dark'] .dictionary-block span {
   background-color: rgba(255, 255, 255, 0.08);
-  color: var(--ifm-font-color-base, #fff);
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 [data-theme='dark'] .dictionary-block span:hover {
-  background-color: var(--ifm-color-primary, #fff);
-  color: var(--ifm-font-color-base-inverse, #000);
+  background-color: #fff;
+  color: #000;
 }
 
 /* ================== Horizontal line separator ================== */
@@ -110,7 +110,7 @@
   width: 25%;
   margin: 0.8rem auto 1rem auto;
   border: none;
-  border-top: 1px solid var(--ifm-color-emphasis-300, #ccc);
+  border-top: 1px solid #ccc;
 }
 
 [data-theme='dark'] .line-separator {
@@ -119,8 +119,8 @@
 
 /* ================== Highlight missing dictionary entries ================== */
 .dictionary-block .missing-entry {
-  background-color: var(--ifm-color-danger, #e53935);
-  color: var(--ifm-color-emphasis-0, #fff);
+  background-color: red;
+  color: white;
   padding: 0.2rem 0.5rem;
   border-radius: 12px;
   white-space: nowrap;
@@ -130,16 +130,18 @@
 }
 
 [data-theme='dark'] .dictionary-block .missing-entry {
-  background-color: var(--ifm-color-danger, #ff4d4d);
-  color: var(--ifm-font-color-base, #fff);
+  background-color: #ff4d4d;
+  color: #fff;
 }
 
 .dictionary-block,
 .poe {
   transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease;
   overflow: hidden;
-  color: inherit;
+  color: inherit;      /* <-- inherit text color based on theme */
+  
 }
+
 
 .hidden {
   opacity: 0;
@@ -154,14 +156,14 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-300, #ccc);
+  border: 1px solid #ccc;
   border-radius: 12px;
   margin-bottom: 2rem;
-  background-color: var(--ifm-background-surface-color, #fafafa);
+  background-color: #fafafa;
 }
 
 [data-theme='dark'] .control-panel {
-  background-color: var(--ifm-background-surface-color, rgba(0, 0, 0, 0.1));
+  background-color: rgba(0, 0, 0, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -205,6 +207,7 @@
   cursor: pointer;
 }
 
+/* Slider dark mode */
 [data-theme='dark'] .font-controls input[type="range"] {
   background: #555;
 }
@@ -241,9 +244,9 @@
 
 /* ===== Control Panel Reset Button Styling ===== */
 .control-panel button {
-  background-color: var(--ifm-color-emphasis-100, #f0f0f0);
-  color: var(--ifm-font-color-base, #000);
-  border: 1px solid var(--ifm-color-emphasis-300, #ccc);
+  background-color: #f0f0f0;
+  color: #000;
+  border: 1px solid #ccc;
   border-radius: 6px;
   padding: 0.4rem 0.8rem;
   font-size: 0.95rem;
@@ -252,94 +255,15 @@
 }
 
 .control-panel button:hover {
-  background-color: var(--ifm-color-emphasis-200, #ddd);
+  background-color: #ddd;
 }
 
 [data-theme='dark'] .control-panel button {
   background-color: rgba(255, 255, 255, 0.08);
-  color: var(--ifm-font-color-base, #fff);
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 [data-theme='dark'] .control-panel button:hover {
   background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* ================== Modal Styling ================== */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-  background: var(--ifm-background-surface-color, #fff);
-  color: var(--ifm-font-color-base, #111);
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  animation: slideUp 0.3s ease;
-}
-
-.modal-content h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.slider {
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.font-preview {
-  background: var(--ifm-color-emphasis-100, #f4f4f4);
-  border-radius: 8px;
-  padding: 0.8rem;
-  margin-top: 0.5rem;
-}
-
-.close-btn {
-  margin-top: 1.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: var(--ifm-color-primary, #4a90e2);
-  color: var(--ifm-color-emphasis-0, #fff);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.close-btn:hover {
-  background: var(--ifm-color-primary-dark, #3a78c0);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

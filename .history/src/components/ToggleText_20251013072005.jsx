@@ -194,7 +194,6 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
             setArabicFontSize(3);
             setTransliterationFontSize(1.2);
             setTranslationFontSize(1.5);
-            setPoeFontSize(1.2);
             setArabicFont('Scheherazade New');
           }}
         >
