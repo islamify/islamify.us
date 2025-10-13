@@ -4,7 +4,7 @@
 
 /* Arabic main lines */
 .arabic {
-  font-family: 'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Lateef', 'Cairo', serif;
+  font-family: 'Scheherazade New', 'Amiri', 'Noto Naskh Arabic', 'Lateef', 'Cairo', serif;
   direction: rtl;
   text-align: center;
 }

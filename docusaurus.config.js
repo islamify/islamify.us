@@ -15,18 +15,13 @@ const config = {
   organizationName: 'islamify',
   projectName: 'islamify.us',
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-
-  i18n: { defaultLocale: 'en', locales: ['en'] },
-
   presets: [
     [
       'classic',
       {
         docs: {
           path: 'docs',
-          routeBasePath: '/',
+          routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: { showReadingTime: true },
@@ -38,6 +33,7 @@ const config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: { respectPrefersColorScheme: true },
+
     navbar: {
       title: 'Islamify',
       logo: { alt: 'Islamify Logo', src: 'img/logo.svg' },
@@ -50,10 +46,11 @@ const config = {
         { href: 'https://github.com/islamify/islamify.us', label: 'GitHub', position: 'right' },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
-        { title: 'Docs', items: [{ label: 'All', to: '/' }] },
+        { title: 'Docs', items: [{ label: 'All', to: '/docs/intro' }] },
         {
           title: 'Community',
           items: [
@@ -72,7 +69,11 @@ const config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Islamify. Built with Docusaurus.`,
     },
-    prism: { theme: prismThemes.github, darkTheme: prismThemes.dracula },
+
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
   },
 };
 

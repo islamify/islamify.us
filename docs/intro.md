@@ -1,6 +1,6 @@
 ---
 id: intro
-slug: /docs/intro
+slug: /intro
 sidebar_position: 3
 
 ---

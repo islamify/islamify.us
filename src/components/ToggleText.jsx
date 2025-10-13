@@ -12,20 +12,23 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
   const keyTF = `${storageKey}_transliterationFontSize`;
   const keySF = `${storageKey}_translationFontSize`;
   const keyFont = `${storageKey}_arabicFont`;
+  const keyP = `${storageKey}_showPoe`;
 
   const [showArabic, setShowArabic] = useState(true);
   const [showTransliteration, setShowTransliteration] = useState(true);
   const [showTranslation, setShowTranslation] = useState(true);
-  const [showDictionary, setShowDictionary] = useState(false);
+  const [showDictionary, setShowDictionary] = useState(true);
+  const [showPoe, setShowPoe] = useState(false);
 
-  const [arabicFontSize, setArabicFontSize] = useState(1.3);
-  const [transliterationFontSize, setTransliterationFontSize] = useState(1.1);
-  const [translationFontSize, setTranslationFontSize] = useState(1.0);
+  const [arabicFontSize, setArabicFontSize] = useState(2);
+  const [transliterationFontSize, setTransliterationFontSize] = useState(1.0);
+  const [translationFontSize, setTranslationFontSize] = useState(1.2);
+  const [poeFontSize, setPoeFontSize] = useState(1.0);
 
   const [arabicFont, setArabicFont] = useState('Amiri');
   const arabicFonts = ['Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Lateef', 'Cairo'];
 
-  // Load saved state on mount
+  // Load saved state
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const sa = localStorage.getItem(keyA);
@@ -36,18 +39,20 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
     const tf = localStorage.getItem(keyTF);
     const sf = localStorage.getItem(keySF);
     const font = localStorage.getItem(keyFont);
+    const sp = localStorage.getItem(keyP);
 
     if (sa !== null) setShowArabic(sa === 'true');
     if (st !== null) setShowTransliteration(st === 'true');
     if (sr !== null) setShowTranslation(sr === 'true');
     if (sd !== null) setShowDictionary(sd === 'true');
+    if (sp !== null) setShowPoe(sp === 'true');
     if (af !== null) setArabicFontSize(parseFloat(af));
     if (tf !== null) setTransliterationFontSize(parseFloat(tf));
     if (sf !== null) setTranslationFontSize(parseFloat(sf));
     if (font && arabicFonts.includes(font)) setArabicFont(font);
   }, []);
 
-  // Save toggles and font sizes
+  // Save state
   useEffect(() => {
     if (typeof window === 'undefined') return;
     localStorage.setItem(keyA, String(showArabic));
@@ -57,21 +62,32 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
     localStorage.setItem(keyAF, String(arabicFontSize));
     localStorage.setItem(keyTF, String(transliterationFontSize));
     localStorage.setItem(keySF, String(translationFontSize));
+    localStorage.setItem(keyP, String(showPoe));
     localStorage.setItem(keyFont, arabicFont);
-  }, [showArabic, showTransliteration, showTranslation, showDictionary, arabicFontSize, transliterationFontSize, translationFontSize, arabicFont]);
+  }, [
+    showArabic,
+    showTransliteration,
+    showTranslation,
+    showDictionary,
+    arabicFontSize,
+    transliterationFontSize,
+    translationFontSize,
+    arabicFont,
+  ]);
 
-  const getSliderBackground = (value, min = 0.5, max = 3) => {
-    const percentage = ((value - min) / (max - min)) * 100;
-    return `linear-gradient(to right, #000 ${percentage}%, #e5e7eb ${percentage}%)`;
-  };
+  const sortedArabicFonts = [
+    arabicFont,
+    ...arabicFonts.filter((f) => f !== arabicFont).sort((a, b) => a.localeCompare(b)),
+  ];
 
   const renderDictionary = (line) => (
     <div className={`dictionary-block ${showDictionary ? '' : 'hidden'}`}>
-      {line.arabic.split(' ').map((word, i) => {
+      {line.arabic.map((word, i) => {
         const entry = dictionary[word];
-        if (!entry) return <span key={i}>{word}</span>;
+        if (!entry) return <span key={i} className="missing-entry">{word}</span>;
+
         return (
-          <span key={i}>
+          <span key={i} className="dictionary-entry">
             {word} ({entry.transliteration}) – {entry.translation}
           </span>
         );
@@ -81,83 +97,83 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
 
   return (
     <div className="toggle-container center-text">
-      {/* Font size sliders */}
-      <div className="font-controls">
-        <div>
-          <label>Arabic</label>
-          <input
-            type="range"
-            min={0.5}
-            max={3}
-            step={0.05}
-            value={arabicFontSize}
-            style={{ background: getSliderBackground(arabicFontSize) }}
-            onChange={(e) => setArabicFontSize(parseFloat(e.target.value))}
-          />
+
+      {/* ===== Control Panel ===== */}
+      <div className="control-panel">
+        {/* Font dropdown */}
+        <div className="font-dropdown-container">
+          <label>Arabic Font:</label>
+          <select value={arabicFont} onChange={(e) => setArabicFont(e.target.value)}>
+            {sortedArabicFonts.map((f) => (
+              <option key={f} value={f}>{f}</option>
+            ))}
+          </select>
         </div>
-        <div>
-          <label>Transliteration</label>
-          <input
-            type="range"
-            min={0.5}
-            max={3}
-            step={0.05}
-            value={transliterationFontSize}
-            style={{ background: getSliderBackground(transliterationFontSize) }}
-            onChange={(e) => setTransliterationFontSize(parseFloat(e.target.value))}
-          />
-        </div>
-        <div>
-          <label>Translation</label>
-          <input
-            type="range"
-            min={0.5}
-            max={3}
-            step={0.05}
-            value={translationFontSize}
-            style={{ background: getSliderBackground(translationFontSize) }}
-            onChange={(e) => setTranslationFontSize(parseFloat(e.target.value))}
-          />
+
+        {/* Font size sliders */}
+        <div className="font-controls">
+          <div>
+            <label>Arabic:</label>
+            <input
+              type="range"
+              min="1" max="5" step="0.1"
+              value={arabicFontSize}
+              onChange={(e) => setArabicFontSize(parseFloat(e.target.value))}
+            />
+          </div>
+          <div>
+            <label>Transliteration:</label>
+            <input
+              type="range"
+              min="0.5" max="2" step="0.05"
+              value={transliterationFontSize}
+              onChange={(e) => setTransliterationFontSize(parseFloat(e.target.value))}
+            />
+          </div>
+          <div>
+            <label>Translation:</label>
+            <input
+              type="range"
+              min="0.5" max="3" step="0.05"
+              value={translationFontSize}
+              onChange={(e) => setTranslationFontSize(parseFloat(e.target.value))}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Arabic font dropdown centered below sliders */}
-      <div className="font-dropdown-container">
-        <label>Arabic Font: </label>
-        <select value={arabicFont} onChange={(e) => setArabicFont(e.target.value)}>
-          {arabicFonts.map((f) => (
-            <option key={f} value={f}>{f}</option>
-          ))}
-        </select>
+      {/* ===== Toggle checkboxes ===== */}
+      <div className="toggle-controls" role="group" aria-label="Show/hide sections">
+        <label>
+          <input type="checkbox" checked={showArabic} onChange={() => setShowArabic((s) => !s)} /> Arabic
+        </label>
+        <label>
+          <input type="checkbox" checked={showTransliteration} onChange={() => setShowTransliteration((s) => !s)} /> Transliteration
+        </label>
+        <label>
+          <input type="checkbox" checked={showTranslation} onChange={() => setShowTranslation((s) => !s)} /> Translation
+        </label>
+        <label>
+          <input type="checkbox" checked={showDictionary} onChange={() => setShowDictionary((s) => !s)} /> Dictionary
+        </label>
+        <label>
+          <input type="checkbox" checked={showPoe} onChange={() => setShowPoe((s) => !s)} /> Poe Rendition
+        </label>
+
+        <button
+          type="button"
+          onClick={() => {
+            setArabicFontSize(3);
+            setTransliterationFontSize(1.2);
+            setTranslationFontSize(1.5);
+            setArabicFont('Scheherazade New');
+          }}
+        >
+          Reset
+        </button>
       </div>
 
-      {/* Toggle Controls */}
-      <div className="toggle-controls" role="group" aria-label="Show or hide Arabic, Transliteration, Translation, Dictionary">
-        <label>
-          <input type="checkbox" checked={showArabic} onChange={() => setShowArabic(s => !s)} /> Arabic
-        </label>
-        <label>
-          <input type="checkbox" checked={showTransliteration} onChange={() => setShowTransliteration(s => !s)} /> Transliteration
-        </label>
-        <label>
-          <input type="checkbox" checked={showTranslation} onChange={() => setShowTranslation(s => !s)} /> Translation
-        </label>
-        <label>
-          <input type="checkbox" checked={showDictionary} onChange={() => setShowDictionary(s => !s)} /> Dictionary
-        </label>
-        <button type="button" onClick={() => {
-          setShowArabic(true);
-          setShowTransliteration(true);
-          setShowTranslation(true);
-          setShowDictionary(false);
-          setArabicFontSize(1.3);
-          setTransliterationFontSize(1.1);
-          setTranslationFontSize(1.0);
-          setArabicFont('Amiri');
-        }}>Reset</button>
-      </div>
-
-      {/* Lines */}
+      {/* ===== Lines ===== */}
       {lines.map((line, i) => (
         <div className="line-block" key={i}>
           <p
@@ -166,7 +182,7 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
               fontSize: `${arabicFontSize}rem`,
               direction: 'rtl',
               textAlign: 'center',
-              fontFamily: arabicFont
+              fontFamily: arabicFont,
             }}
           >
             {line.arabic}
@@ -177,9 +193,11 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
           <p className={`translation ${showTranslation ? '' : 'hidden'}`} style={{ fontSize: `${translationFontSize}rem` }}>
             {line.translation}
           </p>
+          <p className={`poe ${showPoe ? '' : 'hidden'}`} style={{ fontSize: `${poeFontSize}rem`, fontStyle: 'italic' }}>
+            {line.poe}
+          </p>
 
           {renderDictionary(line)}
-
           <hr className="line-separator" />
         </div>
       ))}
