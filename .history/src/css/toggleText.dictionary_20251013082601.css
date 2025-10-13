@@ -1,0 +1,68 @@
+/* ================== Dictionary toggle styling ================== */
+.dictionary-block {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.dictionary-block span {
+  background-color: var(--ifm-color-emphasis-100, #f0f0f0);
+  color: var(--ifm-font-color-base, #000);
+  border: 1px solid var(--ifm-color-emphasis-200, #d1d5db);
+  border-radius: 12px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dictionary-block span:hover {
+  background-color: var(--ifm-color-primary, #000);
+  color: var(--ifm-color-emphasis-0, #fff);
+  cursor: pointer;
+}
+
+[data-theme='dark'] .dictionary-block span {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--ifm-font-color-base, #fff);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .dictionary-block span:hover {
+  background-color: var(--ifm-color-primary, #fff);
+  color: var(--ifm-font-color-base-inverse, #000);
+}
+
+/* ================== Highlight missing dictionary entries ================== */
+.dictionary-block .missing-entry {
+  background-color: var(--ifm-color-danger, #e53935);
+  color: var(--ifm-color-emphasis-0, #fff);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme='dark'] .dictionary-block .missing-entry {
+  background-color: var(--ifm-color-danger, #ff4d4d);
+  color: var(--ifm-font-color-base, #fff);
+}
+
+/* Poe rendering */
+.poe {
+  transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  color: inherit;
+}
+
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-5px);
+}

@@ -2,14 +2,8 @@ import React, { useEffect, useState } from 'react';
 import FontModal from './FontModal';
 import ToggleControls from './ToggleControls';
 import DictionaryBlock from './DictionaryBlock';
-
-// Import all relevant CSS pieces
-import '../css/toggleText.base.css';
-import '../css/toggleText.controls.css';
-import '../css/toggleText.dictionary.css';
-import '../css/toggleText.modal.css';
-import '../css/typography.css';
-
+import '@site/src/css/toggleText.css';
+import '@site/src/css/typography.css';
 
 export default function ToggleText({ lines = [], storageKey = 'textToggle', dictionary = {} }) {
   const keyA = `${storageKey}_showArabic`;

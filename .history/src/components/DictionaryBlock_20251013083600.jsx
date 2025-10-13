@@ -1,7 +1,4 @@
 import React from 'react';
-// Only dictionary CSS is needed here
-import '../css/toggleText.dictionary.css';
-
 
 export default function DictionaryBlock({ line, dictionary, showDictionary }) {
   return (

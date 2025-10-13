@@ -1,7 +1,6 @@
+// src/components/ToggleControls.jsx
 import React from 'react';
-// Only controls CSS is needed here
-import '../css/toggleText.controls.css';
-
+// import '@site/src/css/toggleText.css';
 
 export default function ToggleControls({
   showArabic, setShowArabic,

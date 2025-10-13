@@ -1,7 +1,6 @@
+// src/components/FontModal.jsx
 import React from 'react';
-// Only modal CSS is needed here
-import '../css/toggleText.modal.css';
-
+// import '@site/src/css/toggleText.css';
 
 export default function FontModal({
   isOpen,

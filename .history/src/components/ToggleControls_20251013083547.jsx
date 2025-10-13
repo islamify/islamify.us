@@ -1,7 +1,4 @@
 import React from 'react';
-// Only controls CSS is needed here
-import '../css/toggleText.controls.css';
-
 
 export default function ToggleControls({
   showArabic, setShowArabic,
