@@ -1,0 +1,28 @@
+/* ================== Arabic Text Styling ================== */
+.arabic-text {
+  display: inline;              /* allow words to flow normally */
+  white-space: normal;          /* preserve spaces */
+  direction: rtl;               /* right-to-left layout */
+  text-align: right;            /* right-align text */
+  font-family: 'Amiri', 'Scheherazade', 'Lateef', 'Noto Nastaliq Urdu', serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  letter-spacing: normal;
+  word-spacing: 0.25em;         /* space between words */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional paragraph styling */
+.arabic-text p {
+  margin: 0.3rem 0;
+}
+
+/* Ensure dictionary-block spans containing Arabic use the same styling */
+.dictionary-block span.arabic-text {
+  display: inline;
+  white-space: normal;
+  direction: rtl;
+  text-align: right;
+  word-spacing: 0.25em;
+}

@@ -1,0 +1,8 @@
+.arabic-text {
+  direction: rtl;
+  word-spacing: 0.25em; /* Adds space between words */
+  white-space: normal;
+  font-family: 'Amiri', 'Scheherazade', serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}

@@ -1,8 +1,6 @@
 import React from 'react';
-// Only dictionary CSS is needed here
 import '../css/toggleText.dictionary.css';
-import '../css/arabicFont.css';
-
+import '../css/arabicFont.css'; // Arabic font and spacing
 
 // Normalization function
 function normalizeArabic(word) {
@@ -13,6 +11,8 @@ function normalizeArabic(word) {
 }
 
 export default function DictionaryBlock({ line, dictionary, showDictionary }) {
+  if (!line || !line.arabic) return null;
+
   return (
     <div className={`dictionary-block ${showDictionary ? '' : 'hidden'}`}>
       {line.arabic.map((word, i) => {
@@ -23,13 +23,21 @@ export default function DictionaryBlock({ line, dictionary, showDictionary }) {
           (key) => normalizeArabic(key) === normalizedWord
         );
 
-        if (!dictKey) return <span key={i} className="missing-entry">{word}</span>;
+        if (!dictKey) {
+          // Missing entry: show Arabic word with proper spacing
+          return (
+            <span key={i} className="missing-entry arabic-text">
+              {word}
+            </span>
+          );
+        }
 
         const entry = dictionary[dictKey];
 
         return (
           <span key={i} className="dictionary-entry">
-            {word} ({entry.transliteration}) – {entry.translation}
+            <span className="arabic-text">{word}</span>{' '}
+            ({entry.transliteration}) – {entry.translation}{' '}
           </span>
         );
       })}

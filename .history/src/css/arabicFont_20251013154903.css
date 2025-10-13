@@ -1,0 +1,17 @@
+.arabic-text {
+  direction: rtl;             
+  unicode-bidi: embed;        
+  white-space: normal;        
+  font-family: 'Amiri', 'Scheherazade', 'Lateef', 'Noto Nastaliq Urdu', serif;
+  font-size: 1.3rem;          
+  line-height: 1.8;           
+  letter-spacing: normal;
+  word-spacing: 0.25em;       /* adds space between words */
+  text-align: right;          
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.arabic-text p {
+  margin: 0.3rem 0;
+}

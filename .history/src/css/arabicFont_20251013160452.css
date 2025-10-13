@@ -1,0 +1,10 @@
+/* ================== Arabic Text Styling ================== */
+.arabic-text {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Amiri', 'Scheherazade', 'Lateef', 'Noto Nastaliq Urdu', serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  word-spacing: 0.25em;  /* space between words */
+  margin: 0.3rem 0;
+}

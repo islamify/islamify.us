@@ -1,0 +1,9 @@
+/* ================== Arabic Text Styling ================== */
+.arabic {
+  direction: rtl;
+  text-align: center;
+  font-family: 'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Lateef', 'Cairo', serif;
+  word-spacing: 0.25em;
+  line-height: 1.8;
+  margin: 0.3rem 0;
+}

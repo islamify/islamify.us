@@ -1,8 +1,7 @@
 import React from 'react';
 // Only dictionary CSS is needed here
 import '../css/toggleText.dictionary.css';
-import '../css/arabicFont.css';
-
+import '../css/arabicFont.css'; 
 
 // Normalization function
 function normalizeArabic(word) {
