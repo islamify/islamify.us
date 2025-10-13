@@ -1,7 +1,7 @@
 // src/data/duas/farajLines.js
 const farajLines = [
   {
-    arabic: ["ٱللَّهُمَّ", "كُنْ", "لِوَلِيِّكَ", "الْحُجَّةِ", "ابْنِ", "الْحَسَنِ"],
+    arabic: ["اللّهُمّ", "كُنْ", "لِوَلِيّكَ", "الحُجّةِ", "ابْنِ", "الحَسَنِ"],
     transliteration: 'Allahumma kun li-waliyyika al-Hujjat ibn al-Hasan',
     translation: 'O Allah, be for Your representative, The Evidence, son of Al-Hasan',
     poe: "O Divine Master, manifest Thy presence within Thy chosen—The Proof, scion of Hasan—grant him the mantle of guardianship and the shadow of thy eternal watch, that he may stand unwavering amidst the tempests of the world."
