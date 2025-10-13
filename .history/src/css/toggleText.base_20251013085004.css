@@ -1,0 +1,56 @@
+/* ================== Centered text ================== */
+.center-text {
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.center-text p {
+  margin: 0.3rem 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease, font-size 0.2s ease;
+}
+
+/* ================== Line-block hover ================== */
+.line-block {
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.line-block:hover {
+  background-color: rgba(200, 200, 200, 0.2);
+}
+
+[data-theme='dark'] .line-block:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ================== Smooth fade for show/hide ================== */
+.toggle-container p.arabic,
+.toggle-container p.transliteration,
+.toggle-container p.translation,
+.dictionary-block,
+.poe {
+  opacity: 1;
+  max-height: 1000px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease, font-size 0.2s ease, transform 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-5px);
+}
+
+/* ================== Horizontal line separator ================== */
+.line-separator {
+  width: 25%;
+  margin: 0.8rem auto 1rem auto;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-300, #ccc);
+}
+
+[data-theme='dark'] .line-separator {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
