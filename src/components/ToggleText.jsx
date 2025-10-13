@@ -193,7 +193,7 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
           <p className={`translation ${showTranslation ? '' : 'hidden'}`} style={{ fontSize: `${translationFontSize}rem` }}>
             {line.translation}
           </p>
-          <p className={`poe ${showPoe ? '' : 'hidden'}`} style={{ fontSize: `${poeFontSize}rem`, fontStyle: 'italic' }}>
+          <p className={`poe ${showPoe ? '' : 'hidden'}`} style={{ fontSize: `${poeFontSize}rem` }}>
             {line.poe}
           </p>
 

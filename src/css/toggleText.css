@@ -139,7 +139,7 @@
   transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease;
   overflow: hidden;
   color: inherit;      /* <-- inherit text color based on theme */
-  font-style: italic;  /* keep italic styling */
+  
 }
 
 
