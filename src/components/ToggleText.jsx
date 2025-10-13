@@ -113,7 +113,7 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
         {/* Font size sliders */}
         <div className="font-controls">
           <div>
-            <label>Arabic:</label>
+            <label>Arabic </label>
             <input
               type="range"
               min="1" max="5" step="0.1"
@@ -122,7 +122,7 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
             />
           </div>
           <div>
-            <label>Transliteration:</label>
+            <label>Transliteration </label>
             <input
               type="range"
               min="0.5" max="2" step="0.05"
@@ -131,7 +131,7 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
             />
           </div>
           <div>
-            <label>Translation:</label>
+            <label>Translation </label>
             <input
               type="range"
               min="0.5" max="3" step="0.05"
@@ -139,6 +139,19 @@ export default function ToggleText({ lines = [], storageKey = 'textToggle', dict
               onChange={(e) => setTranslationFontSize(parseFloat(e.target.value))}
             />
           </div>
+
+          <div>
+  <label>Poe</label>
+  <input
+    type="range"
+    min="0.5"
+    max="3"
+    step="0.05"
+    value={poeFontSize}
+    onChange={(e) => setPoeFontSize(parseFloat(e.target.value))}
+  />
+</div>
+
         </div>
       </div>
 
