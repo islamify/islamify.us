@@ -287,20 +287,6 @@ const tawassulDictionary = {
 [normalizeArabic("وَصِيَّ")]: { transliteration: "wasi", translation: "the Successor / Guardian" },
 [normalizeArabic("ٱلْخَلَفُ")]: { transliteration: "al-khalaf", translation: "the Successor" },
 [normalizeArabic("ٱلْمَهْدِيُّ")]: { transliteration: "al-Mahdi", translation: "the Guided One" },
-[normalizeArabic("ٱلْقَائِمُ")]: { transliteration: "al-Qa'im", translation: "the One Who Rises" },
-[normalizeArabic("سَادَتِي")]: { transliteration: "Sadāti", translation: "my masters" },
-[normalizeArabic("فَقْرِي")]: { transliteration: "faqri", translation: "my poverty" },
-[normalizeArabic("لِيَوْمِ")]: { transliteration: "li yawm", translation: "for the day" },
-[normalizeArabic("وَٱسْتَشْفَعْتُ")]: { transliteration: "wa istashfa‘tu", translation: "and I sought intercession" },
-[normalizeArabic("ذُنُوبِي")]: { transliteration: "dhunubi", translation: "my sins" },
-[normalizeArabic("رَجَائِي")]: { transliteration: "rajā’ī", translation: "my hope" },
-[normalizeArabic("اوْلِيَاءَ")]: { transliteration: "awliyā’", translation: "friends/protectors" },
-[normalizeArabic("عَلَيْهِمْ")]: { transliteration: "‘alayhim", translation: "upon them" },
-[normalizeArabic("ظَالِمِيهِمْ")]: { transliteration: "ẓālimīhim", translation: "their oppressors" },
-[normalizeArabic("اعْدَاءَ")]: { transliteration: "a‘dā’", translation: "enemies" },
-[normalizeArabic("ٱلاوَّلِينَ")]: { transliteration: "al-awwalīn", translation: "the first generations" },
-[normalizeArabic("ٱلْعَالَمِين")]: { transliteration: "al-‘Ālamīn", translation: "the worlds" },
-[normalizeArabic("رَبَّ")]: { transliteration: "Rabb", translation: "Lord" },
 
 
 

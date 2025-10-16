@@ -296,11 +296,6 @@ const tawassulDictionary = {
 [normalizeArabic("رَجَائِي")]: { transliteration: "rajā’ī", translation: "my hope" },
 [normalizeArabic("اوْلِيَاءَ")]: { transliteration: "awliyā’", translation: "friends/protectors" },
 [normalizeArabic("عَلَيْهِمْ")]: { transliteration: "‘alayhim", translation: "upon them" },
-[normalizeArabic("ظَالِمِيهِمْ")]: { transliteration: "ẓālimīhim", translation: "their oppressors" },
-[normalizeArabic("اعْدَاءَ")]: { transliteration: "a‘dā’", translation: "enemies" },
-[normalizeArabic("ٱلاوَّلِينَ")]: { transliteration: "al-awwalīn", translation: "the first generations" },
-[normalizeArabic("ٱلْعَالَمِين")]: { transliteration: "al-‘Ālamīn", translation: "the worlds" },
-[normalizeArabic("رَبَّ")]: { transliteration: "Rabb", translation: "Lord" },
 
 
 

@@ -300,7 +300,6 @@ const tawassulDictionary = {
 [normalizeArabic("اعْدَاءَ")]: { transliteration: "a‘dā’", translation: "enemies" },
 [normalizeArabic("ٱلاوَّلِينَ")]: { transliteration: "al-awwalīn", translation: "the first generations" },
 [normalizeArabic("ٱلْعَالَمِين")]: { transliteration: "al-‘Ālamīn", translation: "the worlds" },
-[normalizeArabic("رَبَّ")]: { transliteration: "Rabb", translation: "Lord" },
 
 
 
